@@ -1,0 +1,217 @@
+.page {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  padding: 2rem;
+}
+
+.topLeft {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.brand {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.tab {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0.5rem 0 0;
+}
+
+.intro {
+  position: absolute;
+  top: 4rem;
+  left: 2rem;
+}
+
+.heading {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.subtext {
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0.5rem 0 0;
+  line-height: 1.6;
+}
+
+.diamondNav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diamondFrame {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  transform: rotate(45deg);
+  border: 2px dotted #999;
+  margin: 80px auto;
+  overflow: visible;
+}
+
+.labelTop,
+.labelRight,
+.labelBottom,
+.labelLeft {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.labelTop:hover,
+.labelRight:hover,
+.labelBottom:hover,
+.labelLeft:hover {
+  background: rgba(150, 150, 150, 0.2);
+}
+
+.labelText {
+  transform: rotate(-45deg);
+  display: block;
+}
+
+.labelTop {
+  top: 50px;
+  left: 50px;
+}
+
+.labelRight {
+  top: 50px;
+  right: 50px;
+}
+
+.labelBottom {
+  bottom: 50px;
+  right: 50px;
+}
+
+.labelLeft {
+  bottom: 50px;
+  left: 50px;
+}
+
+.demographics {
+  margin-top: 3rem;
+  display: flex;
+  gap: 3rem;
+}
+
+.statRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.statValue {
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.confirmedInfo {
+  display: flex;
+  gap: 3rem;
+  margin-top: 5rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+}
+
+.confirmedItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.confirmedLabel {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: rgba(0, 0, 0, 0.8);
+  text-decoration: underline;
+}
+
+.bottomNav {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: black;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nextBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.caretIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

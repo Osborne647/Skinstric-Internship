@@ -1,0 +1,252 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: #fafafa;
+  color: black;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.topLeft {
+  margin-bottom: 2rem;
+}
+
+.brand {
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: rgba(0, 0, 0, 1);
+  margin: 0;
+}
+
+.heading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 1);
+  margin: 0.5rem 0 0;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.leftPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 400px;
+  flex-shrink: 0;
+  background: white;
+  padding: 0;
+}
+
+.summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.summaryRowActive {
+  background: black;
+}
+
+.summaryRowActive .summaryLabel,
+.summaryRowActive .summaryValue {
+  color: white;
+}
+
+.summaryLabel {
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.summaryValue {
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: black;
+}
+
+.confidenceCircle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.donut {
+  width: 350px;
+  height: 350px;
+}
+
+.confidenceText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.confidenceLabel {
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 1rem;
+}
+
+.selectedLabel {
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 1rem;
+}
+
+.rightPanel {
+  width: 600px;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  color: black;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.raceList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.raceRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0.5rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.raceRowActive {
+  font-weight: 600;
+  color: white;
+  background-color: black;
+}
+
+.raceDot {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.raceName {
+  flex: 1;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+.raceScore {
+  font-size: 1.3rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.raceScoreActive {
+  color: white;
+}
+
+.bottomNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: black;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+.disclaimer {
+  font-size: 0.55rem;
+  color: rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.05em;
+}
+
+.rightBtns {
+  display: flex;
+  gap: 1rem;
+}
+
+.resetBtn {
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: black;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.confirmBtn {
+  background: black;
+  border: none;
+  color: white;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.caretIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

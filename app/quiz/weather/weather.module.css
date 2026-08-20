@@ -1,0 +1,113 @@
+.page {
+  background: #ffffff;
+  color: #000;
+  min-height: 100vh;
+  padding: 40px;
+  font-family: sans-serif;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.breadcrumb {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.location {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.card h3 {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  color: #666;
+  margin: 0 0 16px 0;
+}
+
+.bigNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.desc {
+  font-size: 0.8rem;
+  color: #555;
+  margin-top: 8px;
+}
+
+.pollenTags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tag {
+  background: #000;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.pollutionTable {
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.pollutionTable td {
+  padding: 4px 8px 4px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pollutionTable td:last-child {
+  color: #555;
+}
+
+.footer {
+  margin-top: 40px;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.backBtn:hover {
+  opacity: 0.7;
+}
