@@ -1,0 +1,16 @@
+.navbar {
+    background-color: white;
+}
+
+.companyname {
+    color: black;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: .7;
+}
+
+.btn {
+    padding-left: 32px;
+    padding-top: 24px;
+    cursor: pointer;
+}

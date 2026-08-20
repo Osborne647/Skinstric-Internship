@@ -1,0 +1,126 @@
+.landing {
+  position: relative;
+  min-height: 80vh;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.label {
+  position: absolute;
+  bottom: -1rem;
+  left: -10rem;
+  color: black;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  max-width: 325px;
+  text-align: left;
+}
+
+.heading {
+  color: black;
+  font-size: clamp(4.5rem, 8vw, 7.5rem);
+  font-weight: 400;
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+}
+
+.btnname {
+  margin: 0;
+  color: black;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.diamondLink {
+  color: black;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.diamondLink:hover {
+  opacity: 0.7;
+}
+
+.ctaGroup {
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 4rem;
+  margin-left: -10rem;
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.caretIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bottomText {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  max-width: 300px;
+  text-align: center;
+}
+
+.rightDiamond {
+  position: absolute;
+  right: -25rem;
+  top: 50%;
+  width: 24rem;
+  height: 24rem;
+  transform: translateY(-50%) rotate(45deg);
+  border: 1px dashed rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .rightDiamond {
+    display: none; /* hide on mobile, or scale it differently */
+  }
+
+  .ctaGroup {
+    position: static;
+    transform: none;
+    margin: 2rem auto 0;
+  }
+
+  .landing {
+    flex-direction: column;
+    min-height: 60vh;
+    padding: 2rem 1rem;
+  }
+
+  .label {
+    position: static;
+    margin-top: 2rem;
+  }
+}
