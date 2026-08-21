@@ -1,12 +1,86 @@
 .page {
   position: relative;
-  min-height: 90vh;
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #fafafa;
   padding: 2rem;
+}
+
+.pageContent {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 1.2s ease;
+  animation: pageIn 1s ease backwards;
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+}
+
+.loadingOverlay {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.8s ease 0.4s both;
+}
+
+.loadingDiamond {
+  width: 350px;
+  height: 350px;
+  border: 1px dotted rgba(0, 0, 0, 0.4);
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeUp 1s ease 0.5s both;
+}
+
+.loadingText {
+  transform: rotate(-45deg);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: black;
+  animation: fadeUpText 1s ease 0.7s both, pulse 1.5s ease-in-out 1.7s infinite;
+  text-align: center;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px) rotate(45deg); }
+  to { opacity: 1; transform: translateY(0) rotate(45deg); }
+}
+
+@keyframes fadeUpText {
+  from { opacity: 0; transform: translateY(30px) rotate(-45deg); }
+  to { opacity: 1; transform: translateY(0) rotate(-45deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 .topLeft {
@@ -60,11 +134,22 @@
 
 .diamondFrame {
   position: relative;
+  width: 450px;
+  height: 450px;
+  transform: rotate(45deg);
+  border: 2px dotted rgba(0, 0, 0, 0.2);
+  margin: 80px auto;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diamondFrametwo {
+  position: relative;
   width: 400px;
   height: 400px;
-  transform: rotate(45deg);
-  border: 2px dotted #999;
-  margin: 80px auto;
+  border: 2px dotted rgba(0, 0, 0, 0.4);
   overflow: visible;
 }
 
@@ -205,8 +290,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
 }
 
 .caretIcon {
@@ -214,4 +299,157 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.backbtn {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.proceedbtn {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .diamondFrame {
+    width: 350px;
+    height: 350px;
+  }
+
+  .diamondFrametwo {
+    width: 300px;
+    height: 300px;
+  }
+
+  .labelTop,
+  .labelRight,
+  .labelBottom,
+  .labelLeft {
+    width: 120px;
+    height: 120px;
+    font-size: 0.9rem;
+  }
+
+  .labelTop { top: 30px; left: 30px; }
+  .labelRight { top: 30px; right: 30px; }
+  .labelBottom { bottom: 30px; right: 30px; }
+  .labelLeft { bottom: 30px; left: 30px; }
+
+  .confirmedInfo {
+    gap: 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 1.5rem;
+    min-height: 100vh;
+  }
+
+  .pageContent {
+    min-height: auto;
+    padding: 4rem 0 5rem;
+  }
+
+  .diamondFrame {
+    width: 280px;
+    height: 280px;
+    margin: 40px auto;
+  }
+
+  .diamondFrametwo {
+    width: 230px;
+    height: 230px;
+  }
+
+  .labelTop,
+  .labelRight,
+  .labelBottom,
+  .labelLeft {
+    width: 100px;
+    height: 100px;
+    font-size: 0.7rem;
+  }
+
+  .labelTop { top: 20px; left: 20px; }
+  .labelRight { top: 20px; right: 20px; }
+  .labelBottom { bottom: 20px; right: 20px; }
+  .labelLeft { bottom: 20px; left: 20px; }
+
+  .confirmedInfo {
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+  }
+
+  .bottomNav {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .backbtn,
+  .proceedbtn {
+    font-size: 0.8rem;
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  .intro {
+    top: 2rem;
+    left: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .diamondFrame {
+    width: 220px;
+    height: 220px;
+    margin: 30px auto;
+  }
+
+  .diamondFrametwo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .labelTop,
+  .labelRight,
+  .labelBottom,
+  .labelLeft {
+    width: 80px;
+    height: 80px;
+    font-size: 0.55rem;
+  }
+
+  .labelTop { top: 15px; left: 15px; }
+  .labelRight { top: 15px; right: 15px; }
+  .labelBottom { bottom: 15px; right: 15px; }
+  .labelLeft { bottom: 15px; left: 15px; }
+
+  .confirmedInfo {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .heading {
+    font-size: 0.75rem;
+  }
+
+  .backbtn,
+  .proceedbtn {
+    font-size: 0.7rem;
+  }
+
+  .loadingDiamond {
+    width: 250px;
+    height: 250px;
+  }
 }

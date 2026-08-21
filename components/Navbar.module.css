@@ -14,3 +14,25 @@
     padding-top: 24px;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .btn {
+    padding-left: 24px;
+    padding-top: 20px;
+  }
+
+  .companyname {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding-left: 16px;
+    padding-top: 16px;
+  }
+
+  .companyname {
+    font-size: 0.7rem;
+  }
+}

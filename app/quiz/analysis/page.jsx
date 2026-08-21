@@ -9,6 +9,8 @@ import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 export default function AnalysisPage() {
   const [result, setResult] = useState(null);
   const [demographics, setDemographics] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [loadingText, setLoadingText] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -23,6 +25,14 @@ export default function AnalysisPage() {
     }
   }, []);
 
+  const navigateWithLoading = (path, text) => {
+    setLoadingText(text);
+    setLoading(true);
+    setTimeout(() => {
+      router.push(path);
+    }, 3000);
+  };
+
   const getTopPrediction = (obj) => {
     if (!obj) return "—";
     return Object.entries(obj).sort((a, b) => b[1] - a[1])[0]?.[0] || "—";
@@ -30,56 +40,70 @@ export default function AnalysisPage() {
 
   return (
     <section className={styles.page}>
-      <div className={styles.intro}>
-        <h2 className={styles.heading}>A.I. ANALYSIS</h2>
-      </div>
-
-      <div className={styles.diamondNav}>
-        <div className={styles.diamondFrame}>
-          <span className={styles.labelTop} onClick={() => router.push("/quiz/demographics")} style={{cursor: "pointer"}}>
-            <span className={styles.labelText}>DEMOGRAPHICS</span>
-          </span>
-          <span className={styles.labelRight}>
-            <span className={styles.labelText}>COSMETIC CONCERNS</span>
-          </span>
-          <span className={styles.labelBottom}><span className={styles.labelText}>SKIN TYPE DETAILS</span></span>
-          <span className={styles.labelLeft} onClick={() => router.push("/quiz/weather")} style={{cursor: "pointer"}}>
-  <span className={styles.labelText}>WEATHER</span>
-</span>
+      {loading && (
+        <div className={styles.loadingOverlay}>
+          <div className={styles.loadingDiamond}>
+            <p className={styles.loadingText}>{loadingText}</p>
+          </div>
         </div>
-      </div>
+      )}
 
-      <div className={styles.confirmedInfo}>
-  <div className={styles.confirmedItem}>
-    <span className={styles.confirmedLabel}>RACE</span>
-    <span>{demographics?.race || (result && getTopPrediction(result.race)) || "—"}</span>
-  </div>
-  <div className={styles.confirmedItem}>
-    <span className={styles.confirmedLabel}>SEX</span>
-    <span>{demographics?.gender || (result && getTopPrediction(result.gender)) || "—"}</span>
-  </div>
-  <div className={styles.confirmedItem}>
-    <span className={styles.confirmedLabel}>AGE</span>
-    <span>{demographics?.age || (result && getTopPrediction(result.age)) || "—"}</span>
-  </div>
-</div>
+      <div className={`${styles.pageContent} ${loading ? styles.fadeOut : ""}`}>
+        <div className={styles.intro}>
+          <h2 className={styles.heading}>A.I. ANALYSIS</h2>
+        </div>
 
-      <div className={styles.bottomNav}>
-        <Link href="/quiz/results" className={styles.backBtn}>
-          <div className={styles.iconWrapper}>
-            <PiDiamondThin size={40} color="black" strokeWidth={0.001} />
-            <IoMdArrowDropleft className={styles.caretIcon} color="black" size={18} />
+        <div className={styles.diamondNav}>
+          <div className={styles.diamondFrame}>
+            <div className={styles.diamondFrametwo}>
+              <span className={styles.labelTop} onClick={() => navigateWithLoading("/quiz/demographics", "LOADING DEMOGRAPHICS...")} style={{cursor: "pointer"}}>
+                <span className={styles.labelText}>DEMOGRAPHICS</span>
+              </span>
+              <span className={styles.labelRight}>
+                <span className={styles.labelText}>COSMETIC CONCERNS</span>
+              </span>
+              <span className={styles.labelBottom}>
+                <span className={styles.labelText}>SKIN TYPE DETAILS</span>
+              </span>
+              <span className={styles.labelLeft} onClick={() => navigateWithLoading("/quiz/weather", "LOADING WEATHER...")} style={{cursor: "pointer"}}>
+                <span className={styles.labelText}>WEATHER</span>
+              </span>
+            </div>
           </div>
-          <span>BACK</span>
-        </Link>
+        </div>
 
-        <button className={styles.nextBtn} onClick={() => router.push("/quiz/summary")}>
-          <span>GET SUMMARY</span>
-          <div className={styles.iconWrapper}>
-            <PiDiamondThin size={40} color="black" strokeWidth={0.001} />
-            <IoMdArrowDropright className={styles.caretIcon} color="black" size={18} />
+        <div className={styles.confirmedInfo}>
+          <div className={styles.confirmedItem}>
+            <span className={styles.confirmedLabel}>RACE</span>
+            <span>{demographics?.race || (result && getTopPrediction(result.race)) || "—"}</span>
           </div>
-        </button>
+          <div className={styles.confirmedItem}>
+            <span className={styles.confirmedLabel}>SEX</span>
+            <span>{demographics?.gender || (result && getTopPrediction(result.gender)) || "—"}</span>
+          </div>
+          <div className={styles.confirmedItem}>
+            <span className={styles.confirmedLabel}>AGE</span>
+            <span>{demographics?.age || (result && getTopPrediction(result.age)) || "—"}</span>
+          </div>
+        </div>
+
+        <div className={styles.bottomNav}>
+          <Link href="/quiz/results" className={styles.backBtn}>
+            <div className={styles.iconWrapper}>
+              <PiDiamondThin size={60} color="black" strokeWidth={0.001} />
+              <IoMdArrowDropleft className={styles.caretIcon} color="black" size={30} />
+            </div>
+            <span className={styles.backbtn}>BACK</span>
+          </Link>
+
+          <button className={styles.nextBtn} onClick={() => router.push("/quiz/summary")}>
+            <span className={styles.proceedbtn}>GET SUMMARY</span>
+            <div className={styles.iconWrapper}>
+              <PiDiamondThin size={60} color="black" strokeWidth={0.001} />
+              <IoMdArrowDropright className={styles.caretIcon} color="black" size={30} />
+            </div>
+          </button>
+        </div>
       </div>
     </section>
   );

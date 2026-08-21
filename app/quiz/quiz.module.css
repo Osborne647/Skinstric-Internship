@@ -7,6 +7,17 @@
   background: #fafafa;
 }
 
+.pageContent {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1.2s ease;
+  animation: pageIn 1s ease backwards;
+}
+
 .topLeft {
   position: absolute;
   top: 2rem;
@@ -131,4 +142,156 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(60vh);
+  pointer-events: none;
+}
+
+.loadingOverlay {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.8s ease 0.4s both;
+}
+
+.loadingDiamond {
+  width: 350px;
+  height: 350px;
+  border: 1px dotted rgba(0, 0, 0, 0.4);
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeUp 1s ease 0.5s both;
+}
+
+.loadingText {
+  transform: rotate(-45deg);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: black;
+  animation: fadeUpText 1s ease 0.7s both, pulse 1.5s ease-in-out 1.7s infinite;
+  text-align: center;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px) rotate(45deg); }
+  to { opacity: 1; transform: translateY(0) rotate(45deg); }
+}
+
+@keyframes fadeUpText {
+  from { opacity: 0; transform: translateY(30px) rotate(-45deg); }
+  to { opacity: 1; transform: translateY(0) rotate(-45deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@media (max-width: 768px) {
+  .page {
+    min-height: 100vh;
+    padding: 0 1.5rem;
+  }
+
+  .pageContent {
+    min-height: 100vh;
+  }
+
+  .topLeft {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .input {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    max-width: 90%;
+  }
+
+  .hint {
+    font-size: 0.8rem;
+  }
+
+  .bottomNav {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .loadingDiamond {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 0 1rem;
+  }
+
+  .topLeft {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.75rem;
+  }
+
+  .input {
+    font-size: 1.5rem;
+    max-width: 100%;
+  }
+
+  .hint {
+    font-size: 0.7rem;
+  }
+
+  .bottomNav {
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .iconWrapper {
+    width: 32px;
+    height: 32px;
+  }
+
+  .backBtn,
+  .nextBtn {
+    font-size: 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .loadingDiamond {
+    width: 220px;
+    height: 220px;
+  }
+
+  .loadingText {
+    font-size: 0.7rem;
+  }
 }

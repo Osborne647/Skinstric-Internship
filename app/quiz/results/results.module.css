@@ -7,6 +7,79 @@
   background: #fafafa;
 }
 
+.pageContent {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1.2s ease;
+  animation: pageIn 1s ease backwards;
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+}
+
+.loadingOverlay {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.8s ease 0.4s both;
+}
+
+.loadingDiamond {
+  width: 350px;
+  height: 350px;
+  border: 1px dotted rgba(0, 0, 0, 0.4);
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeUp 1s ease 0.5s both;
+}
+
+.loadingText {
+  transform: rotate(-45deg);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  color: black;
+  animation: fadeUpText 1s ease 0.7s both, pulse 1.5s ease-in-out 1.7s infinite;
+  text-align: center;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px) rotate(45deg); }
+  to { opacity: 1; transform: translateY(0) rotate(45deg); }
+}
+
+@keyframes fadeUpText {
+  from { opacity: 0; transform: translateY(30px) rotate(-45deg); }
+  to { opacity: 1; transform: translateY(0) rotate(-45deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
 .topLeft {
   position: absolute;
   top: 2rem;
@@ -51,6 +124,49 @@
   gap: 0;
   cursor: pointer;
   margin-top: -10rem; 
+}
+
+.cameraOverlay {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cameraFeed {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: cover;
+}
+
+.cameraControls {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.captureBtn {
+  padding: 12px 32px;
+  background: white;
+  color: black;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.cancelBtn {
+  padding: 12px 32px;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
 }
 
 .optionRight {
@@ -165,4 +281,109 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1024px) {
+  .options {
+    gap: 15rem;
+  }
+
+  .diamondFrame {
+    width: 220px;
+    height: 220px;
+  }
+
+  .iconCircle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .connector {
+    height: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .options {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .optionLeft {
+    margin-top: 0;
+    flex-direction: column;
+  }
+
+  .optionRight {
+    margin-top: 0;
+    flex-direction: column-reverse;
+  }
+
+  .diamondFrame {
+    width: 200px;
+    height: 200px;
+  }
+
+  .iconCircle {
+    width: 70px;
+    height: 70px;
+  }
+
+  .connector {
+    height: 3rem;
+  }
+
+  .pageContent {
+    min-height: 100vh;
+    padding: 4rem 1.5rem 5rem;
+  }
+
+  .topLeft {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  .bottomNav {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .loadingDiamond {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .options {
+    gap: 3rem;
+  }
+
+  .diamondFrame {
+    width: 160px;
+    height: 160px;
+  }
+
+  .iconCircle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .connector {
+    height: 2rem;
+  }
+
+  .optionLabel {
+    font-size: 0.55rem;
+  }
+
+  .loadingDiamond {
+    width: 220px;
+    height: 220px;
+  }
+
+  .loadingText {
+    font-size: 0.7rem;
+  }
 }

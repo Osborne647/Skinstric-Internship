@@ -111,3 +111,70 @@
 .backBtn:hover {
   opacity: 0.7;
 }
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 24px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .bigNumber {
+    font-size: 2rem;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .pollenTags {
+    flex-wrap: wrap;
+  }
+
+  .location {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .bigNumber {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .pollutionTable {
+    font-size: 0.7rem;
+  }
+
+  .footer {
+    margin-top: 24px;
+  }
+}
